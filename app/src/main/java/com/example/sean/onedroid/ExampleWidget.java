@@ -14,7 +14,7 @@ import android.widget.*;
 
 public class ExampleWidget extends Fragment {
 	//    static Context context;
-	public static String widget;
+	private static String widget;
 	private View view;
 
 	private String getWidget() {
@@ -245,7 +245,7 @@ public class ExampleWidget extends Fragment {
 				FrameLayout.LayoutParams lp_monkey = new FrameLayout.LayoutParams(
 						200, // Width in pixel
 						200, // Height in pixel
-						Gravity.LEFT | Gravity.TOP); // Layout Gravity (left top)
+						Gravity.START | Gravity.TOP); // Layout Gravity (left top)
 				// Apply the LayoutParams to monkey ImageView
 				iv_monkey.setLayoutParams(lp_monkey);
 				//  Set an image resource for ImageView
@@ -276,7 +276,7 @@ public class ExampleWidget extends Fragment {
 
 				// Another way to assign layout gravity to a view
 				FrameLayout.LayoutParams lp_iv_camel = (FrameLayout.LayoutParams) iv_camel.getLayoutParams();
-				lp_iv_camel.gravity = Gravity.BOTTOM | Gravity.RIGHT;
+				lp_iv_camel.gravity = Gravity.BOTTOM | Gravity.END;
 				iv_camel.setLayoutParams(lp_iv_camel);
 
 				//  Add those programmatically created ImageView to FrameLayout
@@ -367,11 +367,11 @@ public class ExampleWidget extends Fragment {
 				RadioButton radioButton1 = new RadioButton(rg.getContext());
 				RadioButton radioButton2 = new RadioButton(rg.getContext());
 				RadioButton radioButton3 = new RadioButton(rg.getContext());
-				radioButton1.setId(01);
+				radioButton1.setId(1);
 				radioButton1.setText("Male");
 				radioButton2.setText("Female");
-				radioButton2.setId(02);
-				radioButton3.setId(03);
+				radioButton2.setId(2);
+				radioButton3.setId(3);
 				radioButton3.setText("Other");
 				rg.setOrientation(RadioGroup.HORIZONTAL);//or RadioGroup.VERTICAL
 				rg.addView(radioButton1);
@@ -384,7 +384,7 @@ public class ExampleWidget extends Fragment {
 				RadioGroup radioGroup = new RadioGroup(listview.getContext());
 
 				LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(
-						LinearLayout.LayoutParams.FILL_PARENT,
+						LinearLayout.LayoutParams.MATCH_PARENT,
 						LinearLayout.LayoutParams.WRAP_CONTENT
 				);
 				//layout.addView(radioGroup, p);
@@ -408,23 +408,33 @@ public class ExampleWidget extends Fragment {
 						"porttitor", "sodales", "pellentesque", "augue", "purus"};
 				GridView gridView = new GridView(getActivity());
 //				gridView.setId(ViewIdentification.getId());
-				gridView.setLayoutParams(new GridView.LayoutParams(GridLayout.LayoutParams.FILL_PARENT, GridLayout.LayoutParams.FILL_PARENT));
+				gridView.setLayoutParams(new GridView.LayoutParams(GridLayout.LayoutParams.MATCH_PARENT, GridLayout.LayoutParams.MATCH_PARENT));
 				gridView.setBackgroundColor(Color.WHITE);
 				gridView.setNumColumns(GridView.AUTO_FIT);
 				gridView.setColumnWidth(GridView.AUTO_FIT);
 				gridView.setVerticalSpacing(40);
 				gridView.setHorizontalSpacing(5);
 				gridView.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
-				gridView.setGravity(GridView.TEXT_ALIGNMENT_CENTER);
+//				gridView.setGravity(GridView.TEXT_ALIGNMENT_CENTER);
 //				TextView gridText=new TextView(gridView.getContext());
 				gridView.setAdapter(new ArrayAdapter<>(gridView.getContext(), R.layout.gridcell, items));
 				linearLayout.addView(gridView);
 				break;
 
 			case "ExpandableListView":
+				TextView expandableText = new TextView(getActivity());
+				expandableText.setText("The Launcher Activity is an Expandable list view. Please press the back button for illustration.");
+				linearLayout.addView(expandableText);
 				break;
 
 			case "ScrollView":
+				ScrollView scrollView = new ScrollView(getActivity());
+				scrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+
+				TextView scrollText = new TextView(scrollView.getContext());
+				scrollText.setText(R.string.title_activity_lorem);
+				scrollView.addView(scrollText);
+				linearLayout.addView(scrollView);
 				break;
 
 			case "HorizontalScrollView":
