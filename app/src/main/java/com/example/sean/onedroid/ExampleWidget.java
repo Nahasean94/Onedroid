@@ -14,16 +14,16 @@ import android.widget.*;
 
 public class ExampleWidget extends Fragment {
 	//    static Context context;
-	private static String widget;
+	public static String widget;
 	private View view;
 
 	private String getWidget() {
 		return widget;
 	}
 
-	public void setWidget(String widget) {
-		ExampleWidget.widget = widget;
-	}
+//	public void setWidget(String widget) {
+//		ExampleWidget.widget = widget;
+//	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -438,8 +438,14 @@ public class ExampleWidget extends Fragment {
 				break;
 
 			case "HorizontalScrollView":
-				break;
+				HorizontalScrollView horizontalScrollView = new HorizontalScrollView(getActivity());
+				TextView horizontalText = new TextView(horizontalScrollView.getContext());
+				horizontalText.setText("This is an example of random text to demonstrate a horizontal text view");
+				horizontalText.setTextSize(25);
+				horizontalScrollView.addView(horizontalText);
+				linearLayout.addView(horizontalScrollView);
 
+				break;
 			case "TabHost":
 				break;
 
