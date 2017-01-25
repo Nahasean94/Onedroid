@@ -101,14 +101,6 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(seekBar);
 				break;
 			case "QuickContactBadge":
-				/*QuickContactBadge quickContactBadge;
-				quickContactBadge = new QuickContactBadge(getActivity());
-                TextView textV=new TextView(getActivity());
-                textV.setText("Contact Badge");
-                ArrayList<View> arrayList=new ArrayList<>();
-                arrayList.add(textV);
-                linearLayout.removeView(quickContactBadge);
-                quickContactBadge.addChildrenForAccessibility(arrayList);*/
 				TextView quickContactBadgeText = new TextView(getActivity());
 				quickContactBadgeText.setText("Will be implemented whenever");
 				linearLayout.addView(quickContactBadgeText);
@@ -408,6 +400,25 @@ public class ExampleWidget extends Fragment {
 				listview.addView(radioGroup, p);
 				break;
 			case "GridView":
+				String[] items = {"lorem", "ipsum", "dolor",
+						"sit", "amet",
+						"consectetuer", "adipiscing", "elit", "morbi", "vel",
+						"ligula", "vitae", "arcu", "aliquet", "mollis",
+						"etiam", "vel", "erat", "placerat", "ante",
+						"porttitor", "sodales", "pellentesque", "augue", "purus"};
+				GridView gridView = new GridView(getActivity());
+//				gridView.setId(ViewIdentification.getId());
+				gridView.setLayoutParams(new GridView.LayoutParams(GridLayout.LayoutParams.FILL_PARENT, GridLayout.LayoutParams.FILL_PARENT));
+				gridView.setBackgroundColor(Color.WHITE);
+				gridView.setNumColumns(GridView.AUTO_FIT);
+				gridView.setColumnWidth(GridView.AUTO_FIT);
+				gridView.setVerticalSpacing(40);
+				gridView.setHorizontalSpacing(5);
+				gridView.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
+				gridView.setGravity(GridView.TEXT_ALIGNMENT_CENTER);
+//				TextView gridText=new TextView(gridView.getContext());
+				gridView.setAdapter(new ArrayAdapter<>(gridView.getContext(), R.layout.gridcell, items));
+				linearLayout.addView(gridView);
 				break;
 
 			case "ExpandableListView":
