@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.*;
 
 public class ExampleWidget extends Fragment {
@@ -447,12 +448,52 @@ public class ExampleWidget extends Fragment {
 
 				break;
 			case "TabHost":
+				//The tabHost is returning null...i wonder why :(
+/*				View rootView = LayoutInflater.inflate(R.layout.tabhost, null, false);
+				final TabHost tabHost=(TabHost)getActivity().findViewById(R.id.tabHost);
+				tabHost.setup();
+				tabHost.addTab(tabHost.newTabSpec("tab1")
+						.setIndicator("Monthly")
+						.setContent(new TabHost.TabContentFactory() {
+							@Override
+							public View createTabContent(String tag) {
+									TextView tabtext=new TextView(tabHost.getContext());
+								if (tag.equals("tab1")) {
+									tabtext.setText("Tab 1");
+									return tabtext;
+								}
+								tabtext.setText("No tab selected");
+								return tabtext;
+								}
+							}));
+				tabHost.addTab(tabHost.newTabSpec("tab2")
+						.setIndicator("Daily")
+						.setContent(new TabHost.TabContentFactory() {
+							@Override
+							public View createTabContent(String tag) {
+									TextView tabtext=new TextView(tabHost.getContext());
+								if (tag.equals("tab2")) {
+									tabtext.setText("Tab 2");
+									return tabtext;
+								}
+								tabtext.setText("No tab selected");
+								return tabtext;
+								}
+							}));
+				linearLayout.addView(tabHost);*/
 				break;
 
 			case "WebView":
+				//Give it some time to load...A progress bar should be added.
+				WebView webView = new WebView(getActivity());
+				webView.loadUrl("https://developer.android.com/guide/webapps/webview.html");
+				linearLayout.addView(webView);
 				break;
 
 			case "SearchView":
+				/**
+				 * This will be implemented as part of this app's functionality. Expect to find the code for the search view commented out.
+				 */
 				break;
 
 			default:
