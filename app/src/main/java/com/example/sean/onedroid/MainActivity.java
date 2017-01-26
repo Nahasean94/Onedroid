@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 		containers.add("WebView");
 		containers.add("SearchView");
 
-		imagesAndMedia.add("ImageButon");
+		imagesAndMedia.add("ImageButton");
 		imagesAndMedia.add("ImageView");
 		imagesAndMedia.add("VideoView");
 

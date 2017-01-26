@@ -2,6 +2,7 @@ package com.example.sean.onedroid;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
@@ -12,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.*;
+
+import java.io.File;
 
 public class ExampleWidget extends Fragment {
 	//    static Context context;
@@ -494,6 +497,49 @@ public class ExampleWidget extends Fragment {
 				/**
 				 * This will be implemented as part of this app's functionality. Expect to find the code for the search view commented out.
 				 */
+
+				break;
+			case "ImageButton":
+				final TextView imageText = new TextView(getActivity());
+				imageText.setText("Click on the image button");
+				ImageButton imageButton = new ImageButton(getActivity());
+				imageButton.setImageResource(R.drawable.imagebutton);
+				imageButton.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						imageText.setText("You clicked on the image");
+					}
+				});
+				imageButton.setBackgroundColor(Color.TRANSPARENT);
+//				imageButton.setMaxWidth(10);
+//				imageButton.setMaxHeight(15);
+				linearLayout.addView(imageButton);
+				linearLayout.addView(imageText);
+				break;
+
+			case "ImageView":
+				ImageButton imageButton1 = new ImageButton(getActivity());
+				imageButton1.setImageResource(R.drawable.nougat_bg);
+				linearLayout.addView(imageButton1);
+				break;
+
+			case "VideoView":
+				VideoView videoView = new VideoView(getActivity());
+				MediaController mediaController;
+				File clip = new File(Environment.getExternalStorageDirectory(),
+						"Becky.mp4");
+
+				if (clip.exists()) {
+					videoView.setVideoPath(clip.getAbsolutePath());
+//					videoView.setVideoPath("src/main/res/video/video.3gp");
+					mediaController = new MediaController(videoView.getContext());
+					mediaController.setMediaPlayer(videoView);
+					videoView.setMediaController(mediaController);
+					videoView.requestFocus();
+					videoView.start();
+					linearLayout.addView(videoView);
+				}
+
 				break;
 
 			default:
