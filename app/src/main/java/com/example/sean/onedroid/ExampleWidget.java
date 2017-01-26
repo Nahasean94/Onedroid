@@ -497,6 +497,7 @@ public class ExampleWidget extends Fragment {
 				/**
 				 * This will be implemented as part of this app's functionality. Expect to find the code for the search view commented out.
 				 */
+
 				break;
 			case "ImageButton":
 				final TextView imageText = new TextView(getActivity());
@@ -538,6 +539,7 @@ public class ExampleWidget extends Fragment {
 					videoView.start();
 					linearLayout.addView(videoView);
 				}
+
 				break;
 
 			default:
