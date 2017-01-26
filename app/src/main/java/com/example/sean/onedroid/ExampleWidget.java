@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.*;
 
 public class ExampleWidget extends Fragment {
@@ -21,9 +22,9 @@ public class ExampleWidget extends Fragment {
 		return widget;
 	}
 
-	public void setWidget(String widget) {
-		ExampleWidget.widget = widget;
-	}
+//	public void setWidget(String widget) {
+//		ExampleWidget.widget = widget;
+//	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -101,14 +102,6 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(seekBar);
 				break;
 			case "QuickContactBadge":
-				/*QuickContactBadge quickContactBadge;
-				quickContactBadge = new QuickContactBadge(getActivity());
-                TextView textV=new TextView(getActivity());
-                textV.setText("Contact Badge");
-                ArrayList<View> arrayList=new ArrayList<>();
-                arrayList.add(textV);
-                linearLayout.removeView(quickContactBadge);
-                quickContactBadge.addChildrenForAccessibility(arrayList);*/
 				TextView quickContactBadgeText = new TextView(getActivity());
 				quickContactBadgeText.setText("Will be implemented whenever");
 				linearLayout.addView(quickContactBadgeText);
@@ -253,7 +246,7 @@ public class ExampleWidget extends Fragment {
 				FrameLayout.LayoutParams lp_monkey = new FrameLayout.LayoutParams(
 						200, // Width in pixel
 						200, // Height in pixel
-						Gravity.LEFT | Gravity.TOP); // Layout Gravity (left top)
+						Gravity.START | Gravity.TOP); // Layout Gravity (left top)
 				// Apply the LayoutParams to monkey ImageView
 				iv_monkey.setLayoutParams(lp_monkey);
 				//  Set an image resource for ImageView
@@ -284,7 +277,7 @@ public class ExampleWidget extends Fragment {
 
 				// Another way to assign layout gravity to a view
 				FrameLayout.LayoutParams lp_iv_camel = (FrameLayout.LayoutParams) iv_camel.getLayoutParams();
-				lp_iv_camel.gravity = Gravity.BOTTOM | Gravity.RIGHT;
+				lp_iv_camel.gravity = Gravity.BOTTOM | Gravity.END;
 				iv_camel.setLayoutParams(lp_iv_camel);
 
 				//  Add those programmatically created ImageView to FrameLayout
@@ -375,11 +368,11 @@ public class ExampleWidget extends Fragment {
 				RadioButton radioButton1 = new RadioButton(rg.getContext());
 				RadioButton radioButton2 = new RadioButton(rg.getContext());
 				RadioButton radioButton3 = new RadioButton(rg.getContext());
-				radioButton1.setId(01);
+				radioButton1.setId(1);
 				radioButton1.setText("Male");
 				radioButton2.setText("Female");
-				radioButton2.setId(02);
-				radioButton3.setId(03);
+				radioButton2.setId(2);
+				radioButton3.setId(3);
 				radioButton3.setText("Other");
 				rg.setOrientation(RadioGroup.HORIZONTAL);//or RadioGroup.VERTICAL
 				rg.addView(radioButton1);
@@ -392,7 +385,7 @@ public class ExampleWidget extends Fragment {
 				RadioGroup radioGroup = new RadioGroup(listview.getContext());
 
 				LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(
-						LinearLayout.LayoutParams.FILL_PARENT,
+						LinearLayout.LayoutParams.MATCH_PARENT,
 						LinearLayout.LayoutParams.WRAP_CONTENT
 				);
 				//layout.addView(radioGroup, p);
@@ -408,24 +401,99 @@ public class ExampleWidget extends Fragment {
 				listview.addView(radioGroup, p);
 				break;
 			case "GridView":
+				String[] items = {"lorem", "ipsum", "dolor",
+						"sit", "amet",
+						"consectetuer", "adipiscing", "elit", "morbi", "vel",
+						"ligula", "vitae", "arcu", "aliquet", "mollis",
+						"etiam", "vel", "erat", "placerat", "ante",
+						"porttitor", "sodales", "pellentesque", "augue", "purus"};
+				GridView gridView = new GridView(getActivity());
+//				gridView.setId(ViewIdentification.getId());
+				gridView.setLayoutParams(new GridView.LayoutParams(GridLayout.LayoutParams.MATCH_PARENT, GridLayout.LayoutParams.MATCH_PARENT));
+				gridView.setBackgroundColor(Color.WHITE);
+				gridView.setNumColumns(GridView.AUTO_FIT);
+				gridView.setColumnWidth(GridView.AUTO_FIT);
+				gridView.setVerticalSpacing(40);
+				gridView.setHorizontalSpacing(5);
+				gridView.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
+//				gridView.setGravity(GridView.TEXT_ALIGNMENT_CENTER);
+//				TextView gridText=new TextView(gridView.getContext());
+				gridView.setAdapter(new ArrayAdapter<>(gridView.getContext(), R.layout.gridcell, items));
+				linearLayout.addView(gridView);
 				break;
 
 			case "ExpandableListView":
+				TextView expandableText = new TextView(getActivity());
+				expandableText.setText("The Launcher Activity is an Expandable list view. Please press the back button for illustration.");
+				linearLayout.addView(expandableText);
 				break;
 
 			case "ScrollView":
+				ScrollView scrollView = new ScrollView(getActivity());
+				scrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+
+				TextView scrollText = new TextView(scrollView.getContext());
+				scrollText.setText(R.string.title_activity_lorem);
+				scrollView.addView(scrollText);
+				linearLayout.addView(scrollView);
 				break;
 
 			case "HorizontalScrollView":
-				break;
+				HorizontalScrollView horizontalScrollView = new HorizontalScrollView(getActivity());
+				TextView horizontalText = new TextView(horizontalScrollView.getContext());
+				horizontalText.setText("This is an example of random text to demonstrate a horizontal text view");
+				horizontalText.setTextSize(25);
+				horizontalScrollView.addView(horizontalText);
+				linearLayout.addView(horizontalScrollView);
 
+				break;
 			case "TabHost":
+				//The tabHost is returning null...i wonder why :(
+/*				View rootView = LayoutInflater.inflate(R.layout.tabhost, null, false);
+				final TabHost tabHost=(TabHost)getActivity().findViewById(R.id.tabHost);
+				tabHost.setup();
+				tabHost.addTab(tabHost.newTabSpec("tab1")
+						.setIndicator("Monthly")
+						.setContent(new TabHost.TabContentFactory() {
+							@Override
+							public View createTabContent(String tag) {
+									TextView tabtext=new TextView(tabHost.getContext());
+								if (tag.equals("tab1")) {
+									tabtext.setText("Tab 1");
+									return tabtext;
+								}
+								tabtext.setText("No tab selected");
+								return tabtext;
+								}
+							}));
+				tabHost.addTab(tabHost.newTabSpec("tab2")
+						.setIndicator("Daily")
+						.setContent(new TabHost.TabContentFactory() {
+							@Override
+							public View createTabContent(String tag) {
+									TextView tabtext=new TextView(tabHost.getContext());
+								if (tag.equals("tab2")) {
+									tabtext.setText("Tab 2");
+									return tabtext;
+								}
+								tabtext.setText("No tab selected");
+								return tabtext;
+								}
+							}));
+				linearLayout.addView(tabHost);*/
 				break;
 
 			case "WebView":
+				//Give it some time to load...A progress bar should be added.
+				WebView webView = new WebView(getActivity());
+				webView.loadUrl("https://developer.android.com/guide/webapps/webview.html");
+				linearLayout.addView(webView);
 				break;
 
 			case "SearchView":
+				/**
+				 * This will be implemented as part of this app's functionality. Expect to find the code for the search view commented out.
+				 */
 				break;
 
 			default:
