@@ -541,6 +541,17 @@ public class ExampleWidget extends Fragment {
 				}
 
 				break;
+			case "TimePicker":
+				break;
+			case "DatePicker":
+				break;
+			case "CalenderView":
+				break;
+			case "Chronometer":
+				break;
+			case "TextClock":
+				break;
+
 
 			default:
 				TextView defolt = new TextView(getActivity());
