@@ -56,41 +56,48 @@ public class ExampleWidget extends Fragment {
 //        linearLayout.removeAllViews();
 		switch (getWidget()) {
 			case "TextView":
+				MoreInfo.values = "textView_more_info";
 				TextView textView = new TextView(getActivity());
 				textView.setText("Example Text View");
-
 				linearLayout.addView(textView);
 				break;
 			case "Button":
+				MoreInfo.values = "button_more_info";
 				Button button = new Button(getActivity());
 				button.setText("Example Button");
 				linearLayout.addView(button);
 				break;
 			case "ToggleButton":
+				MoreInfo.values = "toggle_button_more_info";
 				ToggleButton toggleButton = new ToggleButton(getActivity());
 				toggleButton.setText("Toggle this");
 				linearLayout.addView(toggleButton);
 				break;
 			case "CheckBox":
+				MoreInfo.values = "check_box_more_info";
 				CheckBox checkBox = new CheckBox(getActivity());
 				checkBox.setText("Example Check Box");
 				linearLayout.addView(checkBox);
 				break;
 			case "RadioButton":
+				MoreInfo.values = "radio_button_more_info";
 				RadioButton radioButton = new RadioButton(getActivity());
 				radioButton.setText("Example Radio Button");
 				linearLayout.addView(radioButton);
 				break;
 			case "CheckedTextView":
+				MoreInfo.values = "checked_text_view";
 				CheckedTextView checkedTextView = new CheckedTextView(getActivity());
 				checkedTextView.setText("Example CheckedTextView");
 				linearLayout.addView(checkedTextView);
 				break;
 			case "Spinner":
+				MoreInfo.values = "spinner_more_info";
 				Spinner spinner = new Spinner(getActivity());
 				linearLayout.addView(spinner);
 				break;
 			case "ProgressBar":
+				MoreInfo.values = "progress_bar_more_info";
 				ProgressBar progressBar = new ProgressBar(getActivity(), null, android.R.attr.progressBarStyleLarge);
 				progressBar.setIndeterminate(true);
 				progressBar.setVisibility(View.VISIBLE);
@@ -101,24 +108,29 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(progressText);
 				break;
 			case "SeekBar":
+				MoreInfo.values = "seekbar_more_info";
 				SeekBar seekBar = new SeekBar(getActivity());
 				linearLayout.addView(seekBar);
 				break;
 			case "QuickContactBadge":
+				MoreInfo.values = "quick_contact_badge_more_info";
 				TextView quickContactBadgeText = new TextView(getActivity());
 				quickContactBadgeText.setText("Will be implemented whenever");
 				linearLayout.addView(quickContactBadgeText);
 				break;
 			case "RatingBar":
+				MoreInfo.values = "rating_bar_more_info";
 				RatingBar ratingBar = new RatingBar(getActivity());
 				linearLayout.addView(ratingBar);
 				break;
 			case "Switch":
+				MoreInfo.values = "switch_more_info";
 				Switch swich = new Switch(getActivity());
 				swich.setText("Example Switch");
 				linearLayout.addView(swich);
 				break;
 			case "Space":
+				MoreInfo.values = "space_more_info";
 				TextView spaceText = new TextView(getActivity());
 				spaceText.setText("Example Space");
 				linearLayout.addView(spaceText);
@@ -127,12 +139,14 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(spaceText);
 				break;
 			case "Plain Text":
+				MoreInfo.values = "plain_text_more_info";
 				EditText editText = new EditText(getActivity());
 				editText.setInputType(InputType.TYPE_CLASS_TEXT);
 				editText.setHint("Enter name");
 				linearLayout.addView(editText);
 				break;
 			case "Password":
+				MoreInfo.values = "password_more_info";
 				EditText passwordText = new EditText(getActivity());
 				passwordText.setTransformationMethod(PasswordTransformationMethod.getInstance());
 //                passwordText.setInputType(InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD);
@@ -140,24 +154,28 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(passwordText);
 				break;
 			case "Email":
+				MoreInfo.values = "email_more_info";
 				EditText emailText = new EditText(getActivity());
 				emailText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
 				emailText.setHint("Enter email");
 				linearLayout.addView(emailText);
 				break;
 			case "Phone":
+				MoreInfo.values = "phone_more_info";
 				EditText phone = new EditText(getActivity());
 				phone.setInputType(InputType.TYPE_CLASS_PHONE);
 				phone.setHint("Enter Phone");
 				linearLayout.addView(phone);
 				break;
 			case "Postal Address":
+				MoreInfo.values = "postal_address_more_info";
 				EditText postalAddress = new EditText(getActivity());
 				postalAddress.setInputType(InputType.TYPE_TEXT_VARIATION_POSTAL_ADDRESS);
 				postalAddress.setHint("Enter Postal Address");
 				linearLayout.addView(postalAddress);
 				break;
 			case "Multiline Text":
+				MoreInfo.values = "multiline_text_more_info";
 				MultiAutoCompleteTextView multilineText = new MultiAutoCompleteTextView(getActivity());
 //                multilineText.setTransformationMethod(MultiAutoCompleteTextView.ge);
 				multilineText.setInputType(InputType.TYPE_TEXT_FLAG_IME_MULTI_LINE);
@@ -166,6 +184,7 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(multilineText);
 				break;
 			case "Time":
+				MoreInfo.values = "time_more_info";
 				EditText time = new EditText(getActivity());
 				time.setInputType(InputType.TYPE_DATETIME_VARIATION_TIME);
 				time.setHint("Enter time");
@@ -173,6 +192,7 @@ public class ExampleWidget extends Fragment {
 
 				break;
 			case "Date":
+				MoreInfo.values = "date_more_info";
 				EditText date = new EditText(getActivity());
 				date.setInputType(InputType.TYPE_DATETIME_VARIATION_DATE);
 				date.setHint("Enter date");
@@ -185,20 +205,24 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(number);
 				break;
 			case "AutoCompleteTextView":
+				MoreInfo.values = "auto_complete_text_view_more_info";
 				EditText autoCompleteTextView = new EditText(getActivity());
 				autoCompleteTextView.setInputType(InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE);
 				autoCompleteTextView.setHint("Enter Text");
 				linearLayout.addView(autoCompleteTextView);
 				break;
 			case "MultilineAutoCompleteTextView":
+				MoreInfo.values = "multiline_auto_complete_text_view_more_info";
 				EditText multilineAutoCompleteTextView = new EditText(getActivity());
 				multilineAutoCompleteTextView.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
 				multilineAutoCompleteTextView.setHint("Enter Text");
 				linearLayout.addView(multilineAutoCompleteTextView);
 				break;
 			case "ConstraintLayout":
+				MoreInfo.values = "constraint_layout_more_info";
 				break;
 			case "GridLayout":
+				MoreInfo.values = "grid_layout_more_info";
 				GridLayout layout = new GridLayout(getActivity());
 				int total = 12;
 				int columns = 3;
@@ -229,7 +253,7 @@ public class ExampleWidget extends Fragment {
 
 				break;
 			case "FrameLayout":
-
+				MoreInfo.values = "framelayout_more_info";
 				FrameLayout fl = new FrameLayout(getActivity());
 				// Create Layout Parameters for FrameLayout
 				FrameLayout.LayoutParams lpa = new FrameLayout.LayoutParams(
@@ -291,6 +315,7 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(fl);
 				break;
 			case "LinearLayout":
+				MoreInfo.values = "linear_layout_more_info";
 				Button button1 = new Button(getActivity());
 				TextView textView0 = new TextView(button1.getContext());
 				button1.setText("Linear Button");
@@ -299,6 +324,7 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(textView0);
 				break;
 			case "RelativeLayout":
+				MoreInfo.values = "relative_layout_more_info";
 				RelativeLayout relativeLayout = new RelativeLayout(getActivity());
 				RelativeLayout.LayoutParams rlp = new RelativeLayout.LayoutParams(
 						RelativeLayout.LayoutParams.MATCH_PARENT,
@@ -320,6 +346,7 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(relativeLayout);
 				break;
 			case "TableLayout":
+				MoreInfo.values = "table_layout_more_info";
 				TableLayout.LayoutParams tableParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT);
 				TableRow.LayoutParams rowParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
 
@@ -352,6 +379,7 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(tableLayout);
 				break;
 			case "TableRow":
+				MoreInfo.values = "table_row_more_info";
 				TableRow.LayoutParams rowp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
 				TableRow row = new TableRow(getActivity());
 				row.setLayoutParams(rowp);// TableLayout is the
@@ -361,12 +389,14 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(row);
 				break;
 			case "<fragment>":
+				MoreInfo.values = "fragment_more_info";
 				TextView fragmentText = new TextView(getActivity());
 				fragmentText.setText("This is an example fragment, Swiping left will take you to another example fragment");
 				linearLayout.addView(fragmentText);
 				break;
 
 			case "RadioGroup":
+				MoreInfo.values = "radio_group_more_info";
 				RadioGroup rg = new RadioGroup(getActivity()); //create the RadioGroup
 				RadioButton radioButton1 = new RadioButton(rg.getContext());
 				RadioButton radioButton2 = new RadioButton(rg.getContext());
@@ -384,6 +414,7 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(rg);
 				break;
 			case "ListView":
+				MoreInfo.values = "list_view_more_info";
 				ListView listview = new ListView(getActivity());
 				RadioGroup radioGroup = new RadioGroup(listview.getContext());
 
@@ -404,6 +435,7 @@ public class ExampleWidget extends Fragment {
 				listview.addView(radioGroup, p);
 				break;
 			case "GridView":
+				MoreInfo.values = "grid_view_more_info";
 				String[] items = {"lorem", "ipsum", "dolor",
 						"sit", "amet",
 						"consectetuer", "adipiscing", "elit", "morbi", "vel",
@@ -426,12 +458,14 @@ public class ExampleWidget extends Fragment {
 				break;
 
 			case "ExpandableListView":
+				MoreInfo.values = "expandable_list_view_more_info";
 				TextView expandableText = new TextView(getActivity());
 				expandableText.setText("The Launcher Activity is an Expandable list view. Please press the back button for illustration.");
 				linearLayout.addView(expandableText);
 				break;
 
 			case "ScrollView":
+				MoreInfo.values = "scroll_view_more_info";
 				ScrollView scrollView = new ScrollView(getActivity());
 				scrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
@@ -442,6 +476,7 @@ public class ExampleWidget extends Fragment {
 				break;
 
 			case "HorizontalScrollView":
+				MoreInfo.values = "horizontal_scroll_view";
 				HorizontalScrollView horizontalScrollView = new HorizontalScrollView(getActivity());
 				TextView horizontalText = new TextView(horizontalScrollView.getContext());
 				horizontalText.setText("This is an example of random text to demonstrate a horizontal text view");
@@ -487,6 +522,7 @@ public class ExampleWidget extends Fragment {
 				break;
 
 			case "WebView":
+				MoreInfo.values = "web_view_more_info";
 				//Give it some time to load...A progress bar should be added.
 				WebView webView = new WebView(getActivity());
 				webView.loadUrl("https://developer.android.com/guide/webapps/webview.html");
@@ -494,12 +530,14 @@ public class ExampleWidget extends Fragment {
 				break;
 
 			case "SearchView":
+				MoreInfo.values = "search_view_more_info";
 				/**
 				 * This will be implemented as part of this app's functionality. Expect to find the code for the search view commented out.
 				 */
 
 				break;
 			case "ImageButton":
+				MoreInfo.values = "image_button_more_info";
 				final TextView imageText = new TextView(getActivity());
 				imageText.setText("Click on the image button");
 				ImageButton imageButton = new ImageButton(getActivity());
@@ -518,12 +556,14 @@ public class ExampleWidget extends Fragment {
 				break;
 
 			case "ImageView":
+				MoreInfo.values = "image_view_more_info";
 				ImageButton imageButton1 = new ImageButton(getActivity());
 				imageButton1.setImageResource(R.drawable.nougat_bg);
 				linearLayout.addView(imageButton1);
 				break;
 
 			case "VideoView":
+				MoreInfo.values = "video_view_more_info";
 				VideoView videoView = new VideoView(getActivity());
 				MediaController mediaController;
 				File clip = new File(Environment.getExternalStorageDirectory(),
@@ -550,6 +590,60 @@ public class ExampleWidget extends Fragment {
 			case "Chronometer":
 				break;
 			case "TextClock":
+				break;
+			case "ImageSwitcher":
+				break;
+			case "AdapterViewFlipper":
+				break;
+			case "StackView":
+				break;
+			case "TextSwitcher":
+				break;
+			case "ViewAnimator":
+				break;
+			case "ViewFlipper":
+				break;
+			case "ViewSwitcher":
+				break;
+			case "<include>":
+				break;
+			case "<requestFocus>":
+				break;
+			case "<view>":
+				break;
+			case "ViewStub":
+				break;
+			case "TextureView":
+				break;
+			case "NumberPicker":
+				break;
+			case "AdView":
+				break;
+			case "MapFragment":
+				break;
+			case "MapView":
+				break;
+			case "CoordinatorLayout":
+				break;
+			case "AppBarLayout":
+				break;
+			case "TabLayout":
+				break;
+			case "TabItem":
+				break;
+			case "NestedScrollView":
+				break;
+			case "FloatingActionButton":
+				break;
+			case "TextInputLayout":
+				break;
+			case "CardView":
+				break;
+			case "Grid_Layout":
+				break;
+			case "RecyclerView":
+				break;
+			case "ToolBar":
 				break;
 
 

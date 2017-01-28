@@ -12,5 +12,47 @@ Aliquam erat volutpat. Etiam euismod nibh non augue iaculis vestibulum. Phasellu
 Quisque vel pretium est. Etiam placerat, tellus nec rhoncus mattis, nulla arcu porta purus, condimentum sollicitudin ex velit sed metus. Vivamus aliquam nisi mi, sed dapibus metus vestibulum nec. Morbi sodales, enim sit amet aliquam elementum, neque lectus vehicula lacus, id ornare enim ipsum nec magna. Sed  ante, porta a rhoncus non, varius ut nulla. Morbi sed sem ante. Proin tincidunt mollis ligula, sed suscipit dolor. Ut sodales metus quis ex elementum rutrum. Praesent urna ipsum, molestie quis eleifend et, suscipit nec tellus. Nullam in nulla faucibus erat scelerisque elementum. Maecenas tincidunt cursus metus, ac pharetra neque pharetra eget. Vivamus vehicula tellus eget aliquet lacinia. Praesent id mollis nisi, vitae accumsan augue. Sed eu tempus magna. Integer viverra purus et finibus ultricies.
 
 Sed aliquam bibendum aliquam. Suspendisse ullamcorper non ligula vel semper. Donec vitae enim vestibulum, ultricies arcu sed, congue erat. Morbi ac porttitor neque. Nunc dapibus felis vitae ex sodales laoreet. Aenean eu eros ornare, rhoncus nibh eget, tempor nulla. Aliquam erat volutpat. Sed elementum urna nec turpis condimentum, at sollicitudin erat sagittis. Nullam vitae velit eu sem ultricies efficitur.</string>
-images-and-media
+
+    <string name="textView_more_info">TODO: Add more information about the text view</string>
+    <string name="button_more_info">We all know what a button is. You can attach event listeners to respond to user clicks. You can also style the button, or even use an icon/image button in place of the default one.</string>
+    <string name="toggle_button_more_info">TODO: Add more information about the Toggle Button</string>
+    <string name="check_box_more_info">TODO: Add more information about the Check Box</string>
+    <string name="radio_button_more_info">TODO: Add more information about the Radio Button </string>
+    <string name="checked_text_view">TODO: Add more information about the Checked TextView</string>
+    <string name="spinner_more_info">TODO: Add more information about the Spinner </string>
+    <string name="progress_bar_more_info">TODO: Add more information about the Progress Bar </string>
+    <string name="seekbar_more_info">TODO: Add more information about the SeekBar </string>
+    <string name="quick_contact_badge_more_info">TODO: Add more information about the Quick Contact Badge </string>
+    <string name="rating_bar_more_info">TODO: Add more information about the Rating Bar </string>
+    <string name="switch_more_info">TODO: Add more information about the Switch </string>
+    <string name="space_more_info">TODO: Add more information about the Space </string>
+    <string name="plain_text_more_info">TODO: Add more information about the Plain Text </string>
+    <string name="password_more_info">TODO: Add more information about the Password Text </string>
+    <string name="email_more_info">TODO: Add more information about the Email </string>
+    <string name="phone_more_info">TODO: Add more information about the Phone </string>
+    <string name="postal_address_more_info">TODO: Add more information about the Postal Address </string>
+    <string name="multiline_text_more_info">TODO: Add more information about the Multiline Text</string>
+    <string name="time_more_info">TODO: Add more information about the Time</string>
+    <string name="date_more_info">TODO: Add more information about the Date</string>
+    <string name="auto_complete_text_view_more_info">TODO: Add more information about the Auto Complete Text View</string>
+    <string name="multiline_auto_complete_text_view_more_info">TODO: Add more information about the Multiline Autocomplete Textview</string>
+    <string name="constraint_layout_more_info">TODO: Add more information about the Constraint Layout</string>
+    <string name="grid_layout_more_info">TODO: Add more information about the Grid Layout</string>
+    <string name="framelayout_more_info">TODO: Add more information about the Frame Layout</string>
+    <string name="linear_layout_more_info">TODO: Add more information about the Linear Layout</string>
+    <string name="relative_layout_more_info">TODO: Add more information about the Relative Layout</string>
+    <string name="table_layout_more_info">TODO: Add more information about the Table Layout</string>
+    <string name="fragment_more_info">TODO: Add more information about the Fragment </string>
+    <string name="table_row_more_info">TODO: Add more information about the Table Row </string>
+    <string name="radio_group_more_info">TODO: Add more information about the Radio Group </string>
+    <string name="list_view_more_info">TODO: Add more information about the List View </string>
+    <string name="grid_view_more_info">TODO: Add more information about the Grid View </string>
+    <string name="expandable_list_view_more_info">TODO: Add more information about the Expandable List View </string>
+    <string name="scroll_view_more_info">TODO: Add more information about the Scroll View </string>
+    <string name="horizontal_scroll_view">TODO: Add more information about the Horizontal Scroll View </string>
+    <string name="web_view_more_info">TODO: Add more information about the Web View </string>
+    <string name="search_view_more_info">TODO: Add more information about the Search View </string>
+    <string name="image_button_more_info">TODO: Add more information about the Image Button </string>
+    <string name="image_view_more_info">TODO: Add more information about the Image View</string>
+    <string name="video_view_more_info">TODO: Add more information about the Video View</string>
 </resources>

@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 		customDesign.add("TextInputLayout");
 
 		customAppCompat.add("CardView");
-		customAppCompat.add("GridLayout");
+		customAppCompat.add("Grid_Layout");
 		customAppCompat.add("RecyclerView");
 		customAppCompat.add("ToolBar");
 
