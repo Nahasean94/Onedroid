@@ -15,14 +15,22 @@ import java.util.Map;
  * Created by sean on 1/14/17.
  */
 public class MyExpListAdapter extends BaseExpandableListAdapter {
+	//Adapter class to initialize and provide data to the  expandable list view in the MainActivity class.
 	static List<String> categories;
 	static Map<String, List<String>> items;
 	Context context;
 
+	//default constructor
 	public MyExpListAdapter() {
 
 	}
+//constructor to initialize the fields above
 
+	/**
+	 * @param context
+	 * @param categories
+	 * @param items
+	 */
 	public MyExpListAdapter(Context context, List<String> categories, Map<String, List<String>> items) {
 		this.context = context;
 		MyExpListAdapter.categories = categories;

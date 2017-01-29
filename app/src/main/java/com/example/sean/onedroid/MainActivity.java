@@ -13,25 +13,30 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+	//a list to store the categories where each component is under, e.g widgets, layouts, containers etc.
 	private List<String> categories;
+	//a map to map each component to a specific category
 	private Map<String, List<String>> items;
 
-//    ExampleWidget exampleWidget = new ExampleWidget();
-
+	/**
+	 * Called when the app is lauched. Its the entry point to our application,
+	 *
+	 * @param savedInstanceState
+	 */
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//expandable list view to hold our information on the launcher activity.
 		ExpandableListView expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
 		fillData();
+		//Have the adapter populate the data for us
 		ExpandableListAdapter expandableListAdapter = new MyExpListAdapter(this, categories, items);
 		expandableListView.setAdapter(expandableListAdapter);
 		expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 				String widgetName = new MyExpListAdapter().returnChild(groupPosition, childPosition);
-
-				System.out.println("We have obtained this shit " + widgetName);
 				ExampleWidget.widget = widgetName;
 				launchActivity();
 				return false;
@@ -42,15 +47,16 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void launchActivity() {
-//                exampleWidget.setContext(this);
+		//launch the tabbed activity
 		Intent i = new Intent(this, TabbedActivity.class);
 		startActivity(i);
 	}
 
 	private void fillData() {
+		//initialize the categories and the hashmap
 		categories = new ArrayList<>();
 		items = new HashMap<>();
-
+		//populate the categories
 		categories.add("Widgtes");
 		categories.add("Text Fields");
 		categories.add("Layouts");
@@ -62,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 		categories.add("Custom-Google");
 		categories.add("Custom-Design");
 		categories.add("Custom-AppCompat");
-
+//create new lists under each category
 		List<String> widgets = new ArrayList<>();
 		List<String> textFields = new ArrayList<>();
 		List<String> layouts = new ArrayList<>();
@@ -74,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 		List<String> customGoogle = new ArrayList<>();
 		List<String> customDesign = new ArrayList<>();
 		List<String> customAppCompat = new ArrayList<>();
-
+//populate each list (referred to as child)
 		widgets.add("TextView");
 		widgets.add("Button");
 		widgets.add("ToggleButton");
@@ -161,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
 		customAppCompat.add("Grid_Layout");
 		customAppCompat.add("RecyclerView");
 		customAppCompat.add("ToolBar");
-
+//map each list to a specific category
 		items.put(categories.get(0), widgets);
 		items.put(categories.get(1), textFields);
 		items.put(categories.get(2), layouts);

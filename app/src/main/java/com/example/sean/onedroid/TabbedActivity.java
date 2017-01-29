@@ -1,6 +1,5 @@
 package com.example.sean.onedroid;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -13,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class TabbedActivity extends AppCompatActivity {
-	Context context = this;
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
 	 * fragments for each of the sections. We use a
@@ -30,6 +28,7 @@ public class TabbedActivity extends AppCompatActivity {
 	 */
 	private ViewPager mViewPager;
 
+	// the onCreate method to handle what happens when the tabbed activity is create
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -84,10 +83,11 @@ public class TabbedActivity extends AppCompatActivity {
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
 
-		public SectionsPagerAdapter(FragmentManager fm) {
+		SectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
 		}
 
+		// return each tab when the user swipes.
 		@Override
 		public Fragment getItem(int position) {
 			switch (position) {
@@ -103,7 +103,7 @@ public class TabbedActivity extends AppCompatActivity {
 			}
 
 		}
-
+//get the count of tabs
 
 		@Override
 		public int getCount() {
@@ -111,6 +111,7 @@ public class TabbedActivity extends AppCompatActivity {
 			return 3;
 		}
 
+		//label each tab
 		@Override
 		public CharSequence getPageTitle(int position) {
 			switch (position) {

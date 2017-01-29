@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MoreInfo extends Fragment {
@@ -19,10 +18,20 @@ public class MoreInfo extends Fragment {
 		return inflater.inflate(R.layout.activity_more_info, container, false);
 	}
 
+	/**
+	 * Called immediately after {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}
+	 * has returned, but before any saved state has been restored in to the view.
+	 * This gives subclasses a chance to initialize themselves once
+	 * they know their view hierarchy has been completely created.  The fragment's
+	 * view hierarchy is not however attached to its parent at this point.
+	 *
+	 * @param view               The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+	 * @param savedInstanceState If non-null, this fragment is being re-constructed
+	 */
+
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-		super.onViewCreated(view, savedInstanceState);
-		LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.activity_more_info);
+		//Create a text view to add more information about each component, with a switch case to determine what information gets displayed where.
 		TextView textView = (TextView) view.findViewById(R.id.moreInfo);
 		switch (values) {
 			case "textView_more_info":
@@ -37,5 +46,6 @@ public class MoreInfo extends Fragment {
 				break;
 
 		}
+		super.onViewCreated(view, savedInstanceState);
 	}
 }

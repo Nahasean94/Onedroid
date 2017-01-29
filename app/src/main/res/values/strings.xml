@@ -12,7 +12,7 @@ Aliquam erat volutpat. Etiam euismod nibh non augue iaculis vestibulum. Phasellu
 Quisque vel pretium est. Etiam placerat, tellus nec rhoncus mattis, nulla arcu porta purus, condimentum sollicitudin ex velit sed metus. Vivamus aliquam nisi mi, sed dapibus metus vestibulum nec. Morbi sodales, enim sit amet aliquam elementum, neque lectus vehicula lacus, id ornare enim ipsum nec magna. Sed  ante, porta a rhoncus non, varius ut nulla. Morbi sed sem ante. Proin tincidunt mollis ligula, sed suscipit dolor. Ut sodales metus quis ex elementum rutrum. Praesent urna ipsum, molestie quis eleifend et, suscipit nec tellus. Nullam in nulla faucibus erat scelerisque elementum. Maecenas tincidunt cursus metus, ac pharetra neque pharetra eget. Vivamus vehicula tellus eget aliquet lacinia. Praesent id mollis nisi, vitae accumsan augue. Sed eu tempus magna. Integer viverra purus et finibus ultricies.
 
 Sed aliquam bibendum aliquam. Suspendisse ullamcorper non ligula vel semper. Donec vitae enim vestibulum, ultricies arcu sed, congue erat. Morbi ac porttitor neque. Nunc dapibus felis vitae ex sodales laoreet. Aenean eu eros ornare, rhoncus nibh eget, tempor nulla. Aliquam erat volutpat. Sed elementum urna nec turpis condimentum, at sollicitudin erat sagittis. Nullam vitae velit eu sem ultricies efficitur.</string>
-
+    <!--The following strings contain more information about each component-->
     <string name="textView_more_info">TODO: Add more information about the text view</string>
     <string name="button_more_info">We all know what a button is. You can attach event listeners to respond to user clicks. You can also style the button, or even use an icon/image button in place of the default one.</string>
     <string name="toggle_button_more_info">TODO: Add more information about the Toggle Button</string>
@@ -55,4 +55,10 @@ Sed aliquam bibendum aliquam. Suspendisse ullamcorper non ligula vel semper. Don
     <string name="image_button_more_info">TODO: Add more information about the Image Button </string>
     <string name="image_view_more_info">TODO: Add more information about the Image View</string>
     <string name="video_view_more_info">TODO: Add more information about the Video View</string>
+    <string name="timepicker_more_info">TODO: Add more information about the Image Picker</string>
+    <string name="date_picker_more_info">TODO: Add more information about the Date Picker</string>
+    <string name="calender_view_more_info">TODO: Add more information about the Calender View </string>
+    <string name="chronometer_more_info">TODO: Add more information about the Chronometer View </string>
+    <string name="text_clock_more_info">TODO: Add more information about the Text Clock</string>
+    <string name="image_switcher_more_info">TODO: Add more information about the Image Switcher</string>
 </resources>

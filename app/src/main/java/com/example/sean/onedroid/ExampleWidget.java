@@ -17,25 +17,23 @@ import android.widget.*;
 import java.io.File;
 
 public class ExampleWidget extends Fragment {
-	//    static Context context;
+
 	public static String widget;
-	private View view;
 
-	private String getWidget() {
-		return widget;
-	}
 
-//	public void setWidget(String widget) {
-//		ExampleWidget.widget = widget;
-//	}
+	/**
+	 * Called once the the fragment has been called
+	 *
+	 * @param inflater
+	 * @param container
+	 * @param savedInstanceState
+	 * @return
+	 */
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-//        LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.activity_example_widget, container, false);
-
-//        createWidget(getWidget(), linearLayout);
-		view = inflater.inflate(R.layout.activity_example_widget, container, false);
+		View view = inflater.inflate(R.layout.activity_example_widget, container, false);
 		return view;
 	}
 
@@ -52,9 +50,10 @@ public class ExampleWidget extends Fragment {
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
+		//this linear layout will act as the parent layout for all the components implemented below.
 		LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.activity_example_widget);
-//        linearLayout.removeAllViews();
-		switch (getWidget()) {
+//       The switch statement determines what component has been clicked, and acts accordingly. The views are added programmatically to allow for dynamic creation of views. The other option would be to create a layout file for each component which is a lot of work. The cases in this switch contain similar code. We determine what string values to set for the more information and common methods tab for the component, then we create the component, finally add it to the linear layout above
+		switch (widget) {
 			case "TextView":
 				MoreInfo.values = "textView_more_info";
 				TextView textView = new TextView(getActivity());
@@ -582,16 +581,22 @@ public class ExampleWidget extends Fragment {
 
 				break;
 			case "TimePicker":
+				MoreInfo.values = "timepicker_more_info";
 				break;
 			case "DatePicker":
+				MoreInfo.values = "date_picker_more_info";
 				break;
 			case "CalenderView":
+				MoreInfo.values = "calender_view_more_info";
 				break;
 			case "Chronometer":
+				MoreInfo.values = "chronometer_more_info";
 				break;
 			case "TextClock":
+				MoreInfo.values = "text_clock_more_info";
 				break;
 			case "ImageSwitcher":
+				MoreInfo.values = "image_switcher_more_info";
 				break;
 			case "AdapterViewFlipper":
 				break;
