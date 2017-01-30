@@ -565,6 +565,7 @@ public class ExampleWidget extends Fragment {
 				MoreInfo.values = "video_view_more_info";
 				VideoView videoView = new VideoView(getActivity());
 				MediaController mediaController;
+				//Make sure in your internal memory storage, you have a video file in the root folder. In my case its called Becky.mp4. Replace it with the name of your video.
 				File clip = new File(Environment.getExternalStorageDirectory(),
 						"Becky.mp4");
 
@@ -599,56 +600,82 @@ public class ExampleWidget extends Fragment {
 				MoreInfo.values = "image_switcher_more_info";
 				break;
 			case "AdapterViewFlipper":
+				MoreInfo.values = "adapter_view_flipper_more_info";
 				break;
 			case "StackView":
+				MoreInfo.values = "stackview_more_info";
 				break;
 			case "TextSwitcher":
+				MoreInfo.values = "text_switcher_more_info";
 				break;
 			case "ViewAnimator":
+				MoreInfo.values = "view_animator_more_info";
 				break;
 			case "ViewFlipper":
+				MoreInfo.values = "view_flipper_more_info";
 				break;
 			case "ViewSwitcher":
+				MoreInfo.values = "view_switcher_more_info";
 				break;
 			case "<include>":
+				MoreInfo.values = "include_more_info";
 				break;
 			case "<requestFocus>":
+				MoreInfo.values = "request_focus_more_info";
 				break;
 			case "<view>":
+				MoreInfo.values = "view_more_info";
 				break;
 			case "ViewStub":
+				MoreInfo.values = "view_stub_more_info";
 				break;
 			case "TextureView":
+				MoreInfo.values = "texture_view_more_info";
 				break;
 			case "NumberPicker":
+				MoreInfo.values = "number_picker_more_info";
 				break;
 			case "AdView":
+				MoreInfo.values = "adview_more_info";
 				break;
 			case "MapFragment":
+				MoreInfo.values = "map_fragment_more_info";
 				break;
 			case "MapView":
+				MoreInfo.values = "map_view_more_info";
 				break;
 			case "CoordinatorLayout":
+				MoreInfo.values = "coordinator_layout_more_info";
 				break;
 			case "AppBarLayout":
+				MoreInfo.values = "appbar_layout_more_info";
 				break;
 			case "TabLayout":
+				MoreInfo.values = "tab_layout_more_info";
 				break;
 			case "TabItem":
+				MoreInfo.values = "tab_item_more_info";
 				break;
 			case "NestedScrollView":
+				MoreInfo.values = "nested_scroll_view";
 				break;
 			case "FloatingActionButton":
+				MoreInfo.values = "floating_action_button_more_info";
 				break;
 			case "TextInputLayout":
+				MoreInfo.values = "text_input_layout_more_info";
 				break;
 			case "CardView":
+				MoreInfo.values = "cardview_more_info";
 				break;
 			case "Grid_Layout":
+				MoreInfo.values = "custom_grid_layout_more_info";
 				break;
 			case "RecyclerView":
+				MoreInfo.values = "recycler_view_more_info";
 				break;
 			case "ToolBar":
+				MoreInfo.values = "tool_bar_more_info";
 				break;
 
 

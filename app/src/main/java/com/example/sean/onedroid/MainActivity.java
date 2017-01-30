@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 	private Map<String, List<String>> items;
 
 	/**
-	 * Called when the app is lauched. Its the entry point to our application,
+	 * Called when the app is launched. Its the entry point to our application,
 	 *
 	 * @param savedInstanceState
 	 */
