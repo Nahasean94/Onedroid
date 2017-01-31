@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
 		dateAndTime.add("TimePicker");
 		dateAndTime.add("DatePicker");
-		dateAndTime.add("CalenderView");
+		dateAndTime.add("CalendarView");
 		dateAndTime.add("Chronometer");
 		dateAndTime.add("TextClock");
 

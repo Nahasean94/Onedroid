@@ -1,9 +1,14 @@
 package com.example.sean.onedroid;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
@@ -15,6 +20,7 @@ import android.webkit.WebView;
 import android.widget.*;
 
 import java.io.File;
+import java.util.Calendar;
 
 public class ExampleWidget extends Fragment {
 
@@ -47,6 +53,7 @@ public class ExampleWidget extends Fragment {
 	 * @param view               The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
 	 * @param savedInstanceState If non-null, this fragment is being re-constructed
 	 */
+	@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
@@ -583,18 +590,168 @@ public class ExampleWidget extends Fragment {
 				break;
 			case "TimePicker":
 				MoreInfo.values = "timepicker_more_info";
+				final Button btn = new Button(getActivity());
+				btn.setText("Set time");
+				btn.setOnClickListener(new View.OnClickListener() {
+
+					@RequiresApi(api = Build.VERSION_CODES.N)
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Calendar mcurrentTime = Calendar.getInstance();
+						int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+						int minute = mcurrentTime.get(Calendar.MINUTE);
+						TimePickerDialog mTimePicker;
+						mTimePicker = new TimePickerDialog(btn.getContext(), new TimePickerDialog.OnTimeSetListener() {
+							@Override
+							public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+								btn.setText(selectedHour + ":" + selectedMinute);
+							}
+						}, hour, minute, true);//Yes 24 hour time
+						mTimePicker.setTitle("Select Time");
+						mTimePicker.show();
+
+					}
+				});
+				linearLayout.addView(btn);
 				break;
 			case "DatePicker":
 				MoreInfo.values = "date_picker_more_info";
+				final Button dateBtn = new Button(getActivity());
+				dateBtn.setText("Set Date");
+				dateBtn.setOnClickListener(new View.OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						//To show current date in the datepicker
+						Calendar mcurrentDate = Calendar.getInstance();
+						int mYear = mcurrentDate.get(Calendar.YEAR);
+						int mMonth = mcurrentDate.get(Calendar.MONTH);
+						int mDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);
+
+						DatePickerDialog mDatePicker;
+						mDatePicker = new DatePickerDialog(dateBtn.getContext(), new DatePickerDialog.OnDateSetListener() {
+							public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
+								// TODO Auto-generated method stub
+					/*      Your code   to get date and time    */
+								selectedmonth = selectedmonth + 1;
+								dateBtn.setText("" + selectedday + "/" + selectedmonth + "/" + selectedyear);
+							}
+						}, mYear, mMonth, mDay);
+						mDatePicker.setTitle("Select Date");
+						mDatePicker.show();
+					}
+				});
+				linearLayout.addView(dateBtn);
 				break;
-			case "CalenderView":
-				MoreInfo.values = "calender_view_more_info";
+			case "CalendarView":
+				MoreInfo.values = "calendar_view_more_info";
+				final CalendarView calendarView = new CalendarView(getActivity());
+
+
+				LinearLayout.LayoutParams params = new LinearLayout.LayoutParams
+						(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+
+				calendarView.setLayoutParams(params);
+				linearLayout.addView(calendarView);
+				calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+					@Override
+					public void onSelectedDayChange(CalendarView view, int year, int month,
+													int dayOfMonth) {
+						// TODO Auto-generated method stub
+
+						Toast.makeText(calendarView.getContext(), "Selected Date is\n\n"
+										+ dayOfMonth + " : " + month + " : " + year,
+								Toast.LENGTH_LONG).show();
+					}
+				});
+
 				break;
 			case "Chronometer":
 				MoreInfo.values = "chronometer_more_info";
+				LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+				final Chronometer simpleChronometer = new Chronometer(getActivity());
+				simpleChronometer.setLayoutParams(layoutParams);
+				Button start = new Button(simpleChronometer.getContext());
+				start.setText("Start");
+				start.setLayoutParams(layoutParams);
+				start.setWidth(200);
+				Button stop = new Button(simpleChronometer.getContext());
+				stop.setText("Stop");
+				stop.setLayoutParams(layoutParams);
+				stop.setWidth(200);
+
+				Button restart = new Button(simpleChronometer.getContext());
+				restart.setText("Restart");
+				restart.setLayoutParams(layoutParams);
+				restart.setWidth(200);
+				// perform click  event on start button to start a chronometer
+				start.setOnClickListener(new View.OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+
+						simpleChronometer.start();
+					}
+				});
+
+				// perform click  event on stop button to stop the chronometer
+				stop.setOnClickListener(new View.OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+
+						simpleChronometer.stop();
+					}
+				});
+
+				// perform click  event on restart button to set the base time on chronometer
+				restart.setOnClickListener(new View.OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+
+						simpleChronometer.setBase(SystemClock.elapsedRealtime());
+					}
+				});
+
+				linearLayout.addView(start);
+				linearLayout.addView(stop);
+				linearLayout.addView(restart);
+				linearLayout.addView(simpleChronometer);
 				break;
 			case "TextClock":
 				MoreInfo.values = "text_clock_more_info";
+				final DigitalClock simpleDigitalClock = new DigitalClock(getActivity());
+				final AnalogClock simpleAnalogClock = new AnalogClock(simpleDigitalClock.getContext());
+				TextView digitalText = new TextView(simpleDigitalClock.getContext());
+				digitalText.setText("Digital Clock");
+				TextView analogueText = new TextView(simpleDigitalClock.getContext());
+				analogueText.setText("Anologue Clock");
+				// perform click event on analog clock
+				simpleAnalogClock.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						Toast.makeText(simpleDigitalClock.getContext(), "Analog Clock", Toast.LENGTH_SHORT).show(); // display a toast for analog clock
+					}
+				});
+				// perform click event on digital clock
+				simpleDigitalClock.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						Toast.makeText(simpleDigitalClock.getContext(), "Digital Clock", Toast.LENGTH_SHORT).show(); //display a toast for digital clock
+					}
+				});
+				linearLayout.addView(analogueText);
+				linearLayout.addView(simpleAnalogClock);
+				linearLayout.addView(digitalText);
+				linearLayout.addView(simpleDigitalClock);
 				break;
 			case "ImageSwitcher":
 				MoreInfo.values = "image_switcher_more_info";
