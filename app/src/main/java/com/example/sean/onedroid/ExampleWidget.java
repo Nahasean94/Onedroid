@@ -16,6 +16,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
 import android.widget.*;
 
@@ -755,6 +757,57 @@ public class ExampleWidget extends Fragment {
 				break;
 			case "ImageSwitcher":
 				MoreInfo.values = "image_switcher_more_info";
+				// Array of Image IDs to Show In ImageSwitcher
+				final int imageIds[] = {R.drawable.image1, R.drawable.nougat_bg, R.drawable.imagebutton, R.drawable.android7, R.drawable.design, R.drawable.devices};
+				final int count = imageIds.length;
+				// to keep current Index of ImageID array
+
+				final Button btnNext = new Button(getContext());
+				btnNext.setText("Next");
+				final ImageSwitcher simpleImageSwitcher = new ImageSwitcher(btnNext.getContext());
+				// Set the ViewFactory of the ImageSwitcher that will create ImageView object when asked
+				simpleImageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+
+					public View makeView() {
+						// TODO Auto-generated method stub
+
+						// Create a new ImageView and set it's properties
+						ImageView imageView = new ImageView(btnNext.getContext());
+						// set Scale type of ImageView to Fit Center
+						imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+						// set the Height And Width of ImageView To MATCH_PARENT
+						imageView.setLayoutParams(new ImageSwitcher.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+						return imageView;
+					}
+				});
+
+				// Declare in and out animations and load them using AnimationUtils class
+				Animation in = AnimationUtils.loadAnimation(btnNext.getContext(), android.R.anim.slide_in_left);
+				Animation out = AnimationUtils.loadAnimation(btnNext.getContext(), android.R.anim.slide_out_right);
+
+				// set the animation type to ImageSwitcher
+				simpleImageSwitcher.setInAnimation(in);
+				simpleImageSwitcher.setOutAnimation(out);
+
+
+				// ClickListener for NEXT button
+				// When clicked on Button ImageSwitcher will switch between Images
+				// The current Image will go OUT and next Image  will come in with specified animation
+				btnNext.setOnClickListener(new View.OnClickListener() {
+
+					public void onClick(View v) {
+						//current index should be declare outside the event listener as final. But making it final will not allow for changes made during the switching. So this piece of code may not behave as expected. Only one image is being displayed.
+						int currentIndex = -1;
+						// TODO Auto-generated method stub
+						currentIndex++;
+						//  Check If index reaches maximum then reset it
+						if (currentIndex == count)
+							currentIndex = 0;
+						simpleImageSwitcher.setImageResource(imageIds[currentIndex]); // set the image in ImageSwitcher
+					}
+				});
+				linearLayout.addView(simpleImageSwitcher);
+				linearLayout.addView(btnNext);
 				break;
 			case "AdapterViewFlipper":
 				MoreInfo.values = "adapter_view_flipper_more_info";
