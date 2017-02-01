@@ -811,6 +811,44 @@ public class ExampleWidget extends Fragment {
 				break;
 			case "AdapterViewFlipper":
 				MoreInfo.values = "adapter_view_flipper_more_info";
+				AdapterViewFlipper adapterViewFlipper = new AdapterViewFlipper(getActivity());
+				final LinearLayout flipperLayout = new LinearLayout(adapterViewFlipper.getContext());
+				LinearLayout.LayoutParams lyParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+				lyParams.gravity = Gravity.CENTER;
+				flipperLayout.setLayoutParams(lyParams);
+				final ImageView imageView = new ImageView(adapterViewFlipper.getContext());
+				final TextView adapterText = new TextView(adapterViewFlipper.getContext());
+				flipperLayout.addView(adapterText);
+				flipperLayout.addView(imageView);
+				final int[] images = {R.drawable.android7, R.drawable.devices, R.drawable.design, R.drawable.image1, R.drawable.nougat_bg};
+				final String[] imageNames = {"Android 7", "Devices", "Android Design", "Image1", "Nougat Background"};
+				adapterViewFlipper.setAdapter(new BaseAdapter() {
+					@Override
+					public int getCount() {
+						return imageNames.length;
+					}
+
+					@Override
+					public Object getItem(int position) {
+						return null;
+					}
+
+					@Override
+					public long getItemId(int position) {
+						return 0;
+					}
+
+					@Override
+					public View getView(int position, View convertView, ViewGroup parent) {
+						adapterText.setText(imageNames[position]);
+						imageView.setImageResource(images[position]);
+						return convertView;
+					}
+				});
+				adapterViewFlipper.setFlipInterval(3000);
+				adapterViewFlipper.setAutoStart(true);
+				linearLayout.addView(adapterViewFlipper);
+				linearLayout.addView(flipperLayout);
 				break;
 			case "StackView":
 				MoreInfo.values = "stackview_more_info";
