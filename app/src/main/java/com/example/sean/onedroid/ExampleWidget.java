@@ -812,7 +812,7 @@ public class ExampleWidget extends Fragment {
 			case "AdapterViewFlipper":
 				MoreInfo.values = "adapter_view_flipper_more_info";
 				AdapterViewFlipper adapterViewFlipper = new AdapterViewFlipper(getActivity());
-				final LinearLayout flipperLayout = new LinearLayout(adapterViewFlipper.getContext());
+				LinearLayout flipperLayout = new LinearLayout(adapterViewFlipper.getContext());
 				LinearLayout.LayoutParams lyParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 				lyParams.gravity = Gravity.CENTER;
 				flipperLayout.setLayoutParams(lyParams);
@@ -851,7 +851,44 @@ public class ExampleWidget extends Fragment {
 				linearLayout.addView(flipperLayout);
 				break;
 			case "StackView":
+				//Could not pull this off.
 				MoreInfo.values = "stackview_more_info";
+				StackView stackView = new StackView(getActivity());
+				final TextView stackText = new TextView(stackView.getContext());
+				final ImageView imageViewStack = new ImageView(stackView.getContext());
+				final int[] stackImages = {R.drawable.android7, R.drawable.devices, R.drawable.design, R.drawable.image1, R.drawable.nougat_bg};
+				LinearLayout stackLayout = new LinearLayout(stackView.getContext());
+				final String[] stackImageNames = {"Android 7", "Devices", "Android Design", "Image1", "Nougat Background"};
+//				final RecyclerView.ViewHolder viewHolder= ViewHolder();
+				stackLayout.addView(stackText);
+				stackLayout.addView(imageViewStack);
+
+				stackView.setAdapter(new BaseAdapter() {
+					@Override
+					public int getCount() {
+						return stackImageNames.length;
+					}
+
+					@Override
+					public Object getItem(int position) {
+						return null;
+					}
+
+					@Override
+					public long getItemId(int position) {
+						return 0;
+					}
+
+					@Override
+					public View getView(int position, View view, ViewGroup parent) {
+
+						stackText.setText(stackImageNames[position]);
+						imageViewStack.setImageResource(stackImages[position]);
+						return view;
+					}
+				});
+				linearLayout.addView(stackView);
+				linearLayout.addView(stackLayout);
 				break;
 			case "TextSwitcher":
 				MoreInfo.values = "text_switcher_more_info";
